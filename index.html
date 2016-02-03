@@ -1,0 +1,97 @@
+<!-- DOCTYPE HTML -->
+<html>
+<head>
+<title>Your First React Project</title>
+</head>
+<body>
+<div id="content"></div>
+<script src="https://fb.me/react-0.14.6.js"></script>
+<script src="https://fb.me/react-dom-0.14.6.js"></script>
+<script src="http://fb.me/JSXTransformer-0.12.1.js"></script>
+<script type="text/jsx">
+
+var Input = React.createClass({
+  render: function() {
+    return (
+      <input type="text"
+             onChange={this.props.updateName}
+             value={this.props.text}
+      />
+    )
+  }
+})
+
+var Clear = React.createClass({
+  render: function() {
+    return (
+      <button type="button" onClick={this.props.clear}>
+      </button>
+    )
+  }
+})
+
+var App = React.createClass({
+  getInitialState: function() {
+    return {
+      name: 'Lucie'
+    }
+  },
+
+  updateName: function(event) {
+    this.setState({
+      name: event.target.value
+    })
+  },
+
+  clear: function() {
+    this.setState({
+      name: ''
+    })
+  },
+
+  render: function() {
+
+    function Plus2EtPlusGrandQue4(array) {
+      return array
+        .map((val) => v + 2)
+        .filter((v) => v > 4)
+        // 3, 4, 5
+        .reduce(function(state, action) {
+          if (action.type === 'CLEAR') {
+            return {name: ''};
+          }
+          return state;
+        })
+    }
+
+    return (
+      <div>
+        Coucou {this.state.name} !
+        <Input text={this.state.name} updateName={(event) => this.updateName(event)} />
+        <Clear clear={this.clear} />
+      </div>
+    )
+  }
+})
+
+ReactDOM.render(<App/>, document.getElementById('content'));
+
+var objet = {
+  fun: function() {
+    console.log('je suis appele')
+    this.a++;
+    return this.a;
+  }
+}
+
+objet.a = 2;
+console.log(objet.fun())
+
+var fun = objet.fun.bind(objet);
+console.log('deuxieme fois', fun());
+console.log('trois fois', objet.fun());
+
+
+</script>
+</body>
+</html>
