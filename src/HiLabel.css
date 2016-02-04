@@ -1,0 +1,8 @@
+.red {
+  color: blue;
+}
+
+.full {
+  composes: red;
+  style: bold;
+}
