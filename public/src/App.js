@@ -1,15 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
-import Input from './src/Input'
-import ClearButton from './src/ClearButton'
-import HiLabel from './src/HiLabel'
+import Input from './components/Input'
+import ClearButton from './components/ClearButton'
+import HiLabel from './components/HiLabel'
 
 const createState = (name) => {
   return {name}
 }
 
-var App = React.createClass({
+export default React.createClass({
   getInitialState: function() {
     return createState('Lucie')
   },
@@ -33,5 +32,3 @@ var App = React.createClass({
     )
   }
 })
-
-ReactDOM.render(<App/>, document.getElementById('content'));

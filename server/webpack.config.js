@@ -1,11 +1,13 @@
 const path = require('path')
 const webpack = require('webpack')
 
+const publicPath = path.join(__dirname, '..', 'public')
+
 module.exports = {
   devtool: 'source-map',
-  entry: './index.js',
+  entry: path.join(publicPath, 'src/index.js'),
   output: {
-    path: 'dist/',
+    path: publicPath,
     filename: 'bundle.js',
     publicPath: '/build/'
   },
