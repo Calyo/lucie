@@ -5,7 +5,10 @@ const publicPath = path.join(__dirname, '..', 'public')
 
 module.exports = {
   devtool: 'source-map',
-  entry: path.join(publicPath, 'src/index.js'),
+  entry: [
+    'webpack-hot-middleware/client',
+    path.join(publicPath, 'src/index.js')
+  ],
   output: {
     path: publicPath,
     filename: 'bundle.js',
@@ -13,6 +16,7 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
   resolve: {

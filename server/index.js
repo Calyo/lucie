@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 
 if (isDevelopment) {
   const webpackDevMiddleware = require('webpack-dev-middleware')
-  // const webpackHotMiddleware = require('webpack-hot-middleware')
+  const webpackHotMiddleware = require('webpack-hot-middleware')
 
   const webpackConfig = require('./webpack.config')
   const webpackCompiler = webpack(webpackConfig)
@@ -27,7 +27,7 @@ if (isDevelopment) {
     noInfo: true
   }))
 
-  // app.use(webpackHotMiddleware(webpackCompiler))
+  app.use(webpackHotMiddleware(webpackCompiler))
 }
 
 export default app
